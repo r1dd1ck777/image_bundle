@@ -49,9 +49,9 @@ rid_image:
 ```
 
 ### Instalation
-Step 1: Composer: "rid/image-bundle": "dev-master",
-Step 2: AppKernel: new Rid\Bundle\ImageBundle\RidImageBundle(),
-Step 3: Config.yml:
+1. Composer: "rid/image-bundle": "dev-master",
+2. AppKernel: new Rid\Bundle\ImageBundle\RidImageBundle(),
+3. Config.yml:
 ``` yaml
 doctrine:
     dbal:
