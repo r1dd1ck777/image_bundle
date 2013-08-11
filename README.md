@@ -49,9 +49,9 @@ rid_image:
 ```
 
 ### Instalation
-1. Composer: "rid/image-bundle": "dev-master",
-2. AppKernel: new Rid\Bundle\ImageBundle\RidImageBundle(),
-3. Config.yml:
+Step 1: Composer: "rid/image-bundle": "dev-master",
+Step 2: AppKernel: new Rid\Bundle\ImageBundle\RidImageBundle(),
+Step 3: Config.yml:
 ``` yaml
 doctrine:
     dbal:
@@ -78,7 +78,7 @@ rid_image:
             # add more fields
         # add more classes
 ```
-4). In Your entity class:
+Step 4: In Your entity class:
 ``` php
 
 namespace Some\Bundle\Entity\Category;
@@ -114,7 +114,7 @@ class Category
 }
 
 ```
-5). Set field type in form builder
+Step 5: Set field type in form builder
 ``` php
     ->add('image', 'rid_image')
 ```
