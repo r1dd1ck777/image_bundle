@@ -52,6 +52,7 @@ rid_image:
 1. Composer: "rid/image-bundle": "dev-master",
 2. AppKernel: new Rid\Bundle\ImageBundle\RidImageBundle(),
 3. Config.yml:
+
 ``` yaml
 doctrine:
     dbal:
