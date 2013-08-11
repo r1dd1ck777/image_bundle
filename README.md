@@ -83,8 +83,6 @@ rid_image:
 
 4. In Your entity class:
 ``` php
-<?php
-
 namespace Some\Bundle\Entity\Category;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -116,7 +114,6 @@ class Category
         $this->image = $image;
     }
 }
-
 ```
 
 5. Set field type in form builder
