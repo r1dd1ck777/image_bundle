@@ -1,7 +1,6 @@
 .idea
 *.php~
 composer.phar
-composer.lock
 *.orig
 *.remote
 /phpunit.xml

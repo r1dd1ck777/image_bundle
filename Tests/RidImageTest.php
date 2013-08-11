@@ -78,11 +78,11 @@ class RidImageTest extends RidImageTestCase
         $this->assertFalse($ridImage->isReady());
         $this->assertFalse($ridImage->isInit());
         $this->assertFalse($ridImage->hasValue());
-        $this->assertEquals('images/no-image.png', (string)$ridImage);
-        $this->assertEquals('images/no-image.png', (string)$ridImage->tiny);
+        $this->assertEquals('images/no-rid-image.png', (string)$ridImage);
+        $this->assertEquals('images/no-rid-image.png', (string)$ridImage->tiny);
         $this->configSetter->configRidFile($ridImage, 'min_preset');
-        $this->assertEquals('images/no-image.png', (string)$ridImage);
-        $this->assertEquals('images/no-image.png', (string)$ridImage->small);
+        $this->assertEquals('images/no-rid-image.png', (string)$ridImage);
+        $this->assertEquals('images/no-rid-image.png', (string)$ridImage->small);
 
         $ridImage = new RidImage();
         $this->configSetter->configRidFile($ridImage, 'some_preset_name');

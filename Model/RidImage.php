@@ -21,7 +21,7 @@ namespace Rid\Bundle\ImageBundle\Model;
 
 class RidImage extends RidFile
 {
-    const NO_IMAGE_PATH = 'images/no-image.png';
+    const NO_IMAGE_PATH = 'images/no-rid-image.png';
 
     public function offsetSet($offset, $value) {}
     public function offsetExists($offset) {}
