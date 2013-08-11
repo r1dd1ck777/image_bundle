@@ -1,0 +1,54 @@
+rid_image:
+    path:
+        tmp: uploads/tmp/images/
+    dir:
+        web: "%kernel.root_dir%/../web/"
+
+    presets:
+        some_preset_name:
+            path: uploads/category/
+            default: img/bg-noimage-96.jpg
+            thumbnails:
+                some_thumbnail_name:
+                    default: img/bg-category-noimage-96.jpg
+                    width: 96
+                    height: 96
+                    type: inset
+                tiny:
+                    default: img/bg-category-noimage-30.jpg
+                    width: 30
+                    height: 20
+                    type: inset
+
+        other_preset_name:
+            path: uploads/product/avatars/
+            default: img/bg-noimage-150.jpg
+            thumbnails:
+                small:
+                    default: img/bg-product-noimage-96.jpg
+                    width: 96
+                    height: 96
+                    type: inset
+                big:
+                    default: img/bg-product-noimage-150.jpg
+                    width: 150
+                    height: 150
+                    type: outbound
+
+        file_preset:
+            path: uploads/files/
+
+        min_preset:
+            path: uploads/category/
+            thumbnails:
+                small:
+                    width: 120
+                    height: 70
+
+    fields:
+        Rid\Bundle\ImageBundle\Tests\Entities\Category:
+            image: some_preset_name
+            ridFile: file_preset
+        Rid\Bundle\ImageBundle\Tests\Entities\Product:
+            image: some_preset_name
+            preview: other_preset_name

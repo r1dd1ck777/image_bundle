@@ -1,0 +1,27 @@
+{
+    "name": "rid/image-bundle",
+    "type": "symfony-bundle",
+    "description": "Handle file uploads, create and manage thumbnails Symfony2",
+    "keywords": ["Symfony2", "file", "image", "thumbnail"],
+    "homepage": "https://github.com/r1dd1ck777/image_bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ruslan Palagin",
+            "email": "mrriddick7@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/symfony": ">=2.3,<3.0",
+        "doctrine/orm": ">=2.3",
+        "imagine/Imagine": "v0.4.1"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-0": { "Rid\\Bundle\\ImageBundle": "" }
+    },
+    "minimum-stability": "dev",
+    "target-dir": "Rid/Bundle/ImageBundle"
+}

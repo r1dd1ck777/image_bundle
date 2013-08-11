@@ -1,0 +1,58 @@
+parameters:
+    rid_image.class: Rid\Bundle\ImageBundle\Services\RidImageManager
+    rid.image.form_type.rid_image.class: Rid\Bundle\ImageBundle\Form\RidImageType
+    rid.image.listener.upload.class: Rid\Bundle\ImageBundle\EventListener\UploadListener
+    rid.image.listener.load.class: Rid\Bundle\ImageBundle\EventListener\LoadListener
+    rid.image.imagine.class: Imagine\Imagick\Imagine
+    rid.image.config.class: Rid\Bundle\ImageBundle\Services\Config
+    rid.image.config_setter.class: Rid\Bundle\ImageBundle\Services\ConfigSetter
+
+services:
+#    rid.image.test.listener:
+#        class: Rid\Bundle\ImageBundle\Tests\EventListener
+#        tags:
+#            - { name: kernel.event_subscriber }
+
+    rid.image.form.rid_image:
+        class: %rid.image.form_type.rid_image.class%
+        tags:
+            - {name: form.type , alias: rid_image }
+#        calls:
+#            - [setConfig, [%rid_image%]]
+#            - [setSubscriber, [@rid.image.listener.image_crop_subscriber]]
+
+    rid.image.imagine:
+        class: %rid.image.imagine.class%
+
+    rid.image.config:
+        class: %rid.image.config.class%
+        calls:
+            - [ setConfig, [ %rid_image% ] ]
+
+    rid.image.config_setter:
+        class: %rid.image.config_setter.class%
+        calls:
+            - [ setConfig, [@rid.image.config] ]
+
+    rid_image:
+        class: %rid_image.class%
+        calls:
+            - [ setImagine, [@rid.image.imagine] ]
+            - [ setDispatcher, [@event_dispatcher] ]
+            - [ setConfigSetter, [@rid.image.config_setter] ]
+
+    rid.image.listener.upload:
+        class: %rid.image.listener.upload.class%
+        calls:
+            - [ setContainer, [ @service_container ]]
+        tags:
+            - { name: doctrine.event_listener, event: preFlush  }
+            - { name: doctrine.event_listener, event: onFlush  }
+            - { name: doctrine.event_listener, event: postFlush  }
+
+    rid.image.listener.load:
+        class: %rid.image.listener.load.class%
+        properties:
+             configSetter: @rid.image.config_setter
+        tags:
+            - { name: doctrine.event_listener, event: postLoad }
