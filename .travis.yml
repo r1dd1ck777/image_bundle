@@ -5,7 +5,7 @@ php:
   - 5.4
   - 5.5
 before_script:
-    - sudo pecl install imagick
+    - pecl install imagemagick
     - echo "extension=imagick.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
     - curl -s http://getcomposer.org/installer | php
     - php composer.phar install
