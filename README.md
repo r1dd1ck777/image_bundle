@@ -2,16 +2,16 @@ RidImageBundle (beta)
 ==================================
 Provides handling uploaded files and thumbnail creation, clean templates and flexible configuration.
 
-###### Full documentation soon...
+### Full documentation soon...
 
-###### How it works
+### How it works
 1. Store file name in database in a string
 2. Replace PHP field representation from string to RidImage
 3. Automatically inject configuration to RidImage
 4. Automatically handle uploaded files according to configuration
 5. Maximum parameters in config file (not in entities, services or templates)
 
-###### Twig Example:
+### Twig Example:
 #### Config:
 ``` yaml
 rid_image:
@@ -49,7 +49,7 @@ rid_image:
 
 ```
 
-###### Instalation
+### Instalation
 #### 1. Composer: "rid/image-bundle": "dev-master",
 #### 2. AppKernel: new Rid\Bundle\ImageBundle\RidImageBundle(),
 #### 3. Config.yml:
@@ -66,19 +66,19 @@ doctrine:
 
 rid_image:
     presets:
-        #### here you can create as many presets as you need
+        # here you can create as many presets as you need
         somePresetName:
             path: uploads/category/
             thumbnails:
-                small: #### define eny name for thumbnails
+                small: # define eny name for thumbnails
                     width: 120
                     height: 70
-                #### add more thumbnails
+                # add more thumbnails
     fields:
         Some\Bundle\Entity\Category:
             fieldName: somePresetName
-            #### add more fields
-        #### add more classes
+            # add more fields
+        # add more classes
 ```
 
 #### 4. In Your entity class:
@@ -123,11 +123,11 @@ class Category
     ->add('image', 'rid_image')
 ```
 
-###### Also implemented:
+### Also implemented:
 - Manual handling of uploaded files
 - Events
 
-###### In future:
+### In future:
 - frontend widgets (jcrop)
 - grabbing from url
 - more tests
