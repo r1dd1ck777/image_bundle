@@ -82,38 +82,18 @@ rid_image:
 ```
 
 4. In Your entity class:
+
 ``` php
-namespace Some\Bundle\Entity\Category;
+// simply find user and then:
+{{ asset(user.avatar) }}          // /uploads/user/avatars/random_name.jpg (full size)
+{{ asset(category.image.small) }} // /uploads/user/avatars/small_random_name.jpg (90x90)
+{{ asset(category.image.tiny) }}  // /uploads/user/avatars/tiny_random_name.jpg (30x20)
 
-use Doctrine\ORM\Mapping as ORM;
-use Rid\Bundle\ImageBundle\Model\RidImage;
+// if image field is empty:
+{{ asset(user.avatar) }}          // /image/default-user-avatar.png
+{{ asset(category.image.small) }} // /image/default-user-avatar-90.png
+{{ asset(category.image.tiny) }}  // /image/default-user-avatar-30.png
 
-/**
- * @ORM\Table()
- * @ORM\Entity()
- */
-class Category
-{
-    /**
-     * @ORM\Column(type="rid_image", length=255, options={"default" = ""})
-     */
-    protected $image;
-
-    public function __construct()
-    {
-        $this->image = new RidImage();
-    }
-
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    public function setImage($image)
-    {
-        $this->image = $image;
-    }
-}
 ```
 
 5. Set field type in form builder
