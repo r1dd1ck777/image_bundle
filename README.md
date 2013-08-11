@@ -37,15 +37,15 @@ rid_image:
 
 Twig:
 ``` php
-    // simply find user and then:
-    {{ asset(user.avatar) }}          // /uploads/user/avatars/random_name.jpg (full size)
-    {{ asset(category.image.small) }} // /uploads/user/avatars/small_random_name.jpg (90x90)
-    {{ asset(category.image.tiny) }}  // /uploads/user/avatars/tiny_random_name.jpg (30x20)
+// simply find user and then:
+{{ asset(user.avatar) }}          // /uploads/user/avatars/random_name.jpg (full size)
+{{ asset(category.image.small) }} // /uploads/user/avatars/small_random_name.jpg (90x90)
+{{ asset(category.image.tiny) }}  // /uploads/user/avatars/tiny_random_name.jpg (30x20)
 
-    // if image field is empty:
-    {{ asset(user.avatar) }}          // /image/default-user-avatar.png
-    {{ asset(category.image.small) }} // /image/default-user-avatar-90.png
-    {{ asset(category.image.tiny) }}  // /image/default-user-avatar-30.png
+// if image field is empty:
+{{ asset(user.avatar) }}          // /image/default-user-avatar.png
+{{ asset(category.image.small) }} // /image/default-user-avatar-90.png
+{{ asset(category.image.tiny) }}  // /image/default-user-avatar-30.png
 
 ```
 
@@ -82,7 +82,7 @@ rid_image:
 ```
 
 4. In Your entity class:
-``` php
+```php
 <?php
 
 namespace Some\Bundle\Entity\Category;
