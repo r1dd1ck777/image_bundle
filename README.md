@@ -50,9 +50,9 @@ Twig:
 ```
 
 ### Instalation
-1. Composer: "rid/image-bundle": "dev-master",
-2. AppKernel: new Rid\Bundle\ImageBundle\RidImageBundle(),
-3. Config.yml:
+**1.** Composer: "rid/image-bundle": "dev-master",
+**2.** AppKernel: new Rid\Bundle\ImageBundle\RidImageBundle(),
+**3.** Config.yml:
 
 ``` yaml
 doctrine:
@@ -81,7 +81,7 @@ rid_image:
         # add more classes
 ```
 
-4. In Your entity class:
+**4.** In Your entity class:
 
 ``` php
 
@@ -119,7 +119,7 @@ class Category
 
 ```
 
-5. Set field type in form builder
+**5.** Set field type in form builder
 ``` php
     ->add('image', 'rid_image')
 ```
