@@ -5,11 +5,11 @@ Provides handling uploaded files and thumbnail creation, clean templates and fle
 ### Full documentation soon...
 
 ### How it works
-1). Store file name in database in a string
-2). Replace PHP field representation from string to RidImage
-3). Automatically inject configuration to RidImage
-4). Automatically handle uploaded files according to configuration
-5). Maximum parameters in config file (not in entities, services or templates)
+1. Store file name in database in a string
+2. Replace PHP field representation from string to RidImage
+3. Automatically inject configuration to RidImage
+4. Automatically handle uploaded files according to configuration
+5. Maximum parameters in config file (not in entities, services or templates)
 
 ### Twig Example:
 ``` yaml
@@ -49,9 +49,9 @@ rid_image:
 ```
 
 ### Instalation
-1). Composer: "rid/image-bundle": "dev-master",
-2). AppKernel: new Rid\Bundle\ImageBundle\RidImageBundle(),
-3). Config.yml:
+1. Composer: "rid/image-bundle": "dev-master",
+2. AppKernel: new Rid\Bundle\ImageBundle\RidImageBundle(),
+3. Config.yml:
 ``` yaml
 doctrine:
     dbal:
