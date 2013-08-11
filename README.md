@@ -82,7 +82,7 @@ rid_image:
 ```
 
 4. In Your entity class:
-```php
+``` php
 <?php
 
 namespace Some\Bundle\Entity\Category;
@@ -116,6 +116,7 @@ class Category
         $this->image = $image;
     }
 }
+
 ```
 
 5. Set field type in form builder
