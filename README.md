@@ -1,7 +1,7 @@
 RidImageBundle (beta)
 ==================================
 Provides handling uploaded files and thumbnail creation, clean templates and flexible configuration.
-[![Build Status](https://travis-ci.org/r1dd1ck777/image_bundle.png)](https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME])
+[![Build Status](https://travis-ci.org/r1dd1ck777/image_bundle.png)](https://travis-ci.org/r1dd1ck777/image_bundle)
 
 ### Full documentation soon...
 
