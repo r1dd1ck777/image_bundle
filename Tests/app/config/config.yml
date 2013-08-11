@@ -1,0 +1,102 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: bundle/rid_image.yml }
+
+security:
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        in_memory:
+            memory:
+                users:
+                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+
+    firewalls:
+        dev:
+            context:  common_context
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main_area:
+            context:  common_context
+            provider: in_memory
+            anonymous: ~
+
+framework:
+    #esi:             ~
+    translator:      { fallback: %locale% }
+    secret:          %secret%
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        assets_version: %assets_version%
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_proxies: ~
+    session:         ~
+    fragments:       ~
+    http_method_override: true
+
+# Twig Configuration
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+
+# Assetic Configuration
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    bundles:        [ ]
+    filters:
+        cssrewrite: ~
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   %database_driver%
+        host:     %database_host%
+        port:     %database_port%
+        dbname:   %database_name%
+        user:     %database_user%
+        password: %database_password%
+        charset:  UTF8
+
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true
+        mappings:
+            RidImageBundle:
+                type: annotation
+                prefix: Rid\Bundle\ImageBundle\Tests\Entities\
+                dir: Tests/Entities
+    dbal:
+        types:
+            rid_image: Rid\Bundle\ImageBundle\DBAL\Types\RidImageType
+            rid_file: Rid\Bundle\ImageBundle\DBAL\Types\RidFileType
+        mapping_types:
+            rid_image: rid_image
+            rid_file: rid_file
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: %mailer_transport%
+    host:      %mailer_host%
+    username:  %mailer_user%
+    password:  %mailer_password%
+    spool:     { type: memory }
+
+parameters:
+    kernel.web_dir: %kernel.root_dir%../web/
+    mailer_from: noreply@noreply.com
+    assets_version: 1.000

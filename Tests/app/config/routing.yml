@@ -1,0 +1,6 @@
+_light_routing:
+    resource: 'light_routing.yml'
+
+rid_image:
+    resource: "@RidImageBundle/Resources/config/routing.yml"
+    prefix:   /

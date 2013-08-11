@@ -6,3 +6,7 @@ composer.lock
 *.remote
 /phpunit.xml
 /vendor/
+Tests/web
+Tests/app/cache
+Tests/app/logs
+Tests/app/bootstrap.php.cache
