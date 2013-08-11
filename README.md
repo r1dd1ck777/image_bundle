@@ -12,7 +12,7 @@ Provides handling uploaded files and thumbnail creation, clean templates and fle
 5. Maximum parameters in config file (not in entities, services or templates)
 
 ### Twig Example:
-#### Config:
+###### Config:
 ``` yaml
 rid_image:
     presets:
@@ -35,7 +35,7 @@ rid_image:
             avatar: user_avatars
 ```
 
-#### Twig:
+###### Twig:
 ``` php
     // simply find user and then:
     {{ asset(user.avatar) }}          // /uploads/user/avatars/random_name.jpg (full size)
@@ -50,9 +50,9 @@ rid_image:
 ```
 
 ### Instalation
-#### 1. Composer: "rid/image-bundle": "dev-master",
-#### 2. AppKernel: new Rid\Bundle\ImageBundle\RidImageBundle(),
-#### 3. Config.yml:
+###### 1. Composer: "rid/image-bundle": "dev-master",
+###### 2. AppKernel: new Rid\Bundle\ImageBundle\RidImageBundle(),
+###### 3. Config.yml:
 
 ``` yaml
 doctrine:
@@ -81,7 +81,7 @@ rid_image:
         # add more classes
 ```
 
-#### 4. In Your entity class:
+###### 4. In Your entity class:
 ``` php
 <?php
 
@@ -118,7 +118,7 @@ class Category
 }
 ```
 
-#### 5. Set field type in form builder
+###### 5. Set field type in form builder
 ``` php
     ->add('image', 'rid_image')
 ```
