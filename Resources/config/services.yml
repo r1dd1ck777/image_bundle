@@ -17,7 +17,8 @@ services:
         class: %rid.image.form_type.rid_image.class%
         tags:
             - {name: form.type , alias: rid_image }
-#        calls:
+        calls:
+            - [setTranslator, [@translator]]
 #            - [setConfig, [%rid_image%]]
 #            - [setSubscriber, [@rid.image.listener.image_crop_subscriber]]
 

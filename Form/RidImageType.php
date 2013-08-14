@@ -9,6 +9,13 @@ class RidImageType extends AbstractType
 {
     protected $config;
     protected $subscriber;
+    /** @var \Symfony\Component\Translation\Translator */
+    protected $translator;
+
+    public function setTranslator($translator)
+    {
+        $this->translator = $translator;
+    }
 
     public function setConfig($config)
     {
@@ -33,7 +40,7 @@ class RidImageType extends AbstractType
 //        $builder->addEventSubscriber($this->subscriber);
 
         $builder
-            ->add('file', 'file', array('required'  => false, 'label' => 'rid_image.form.file'))
+            ->add('file', 'file', array('required'  => false, 'label' => $this->translator->trans('rid_image.form.file', array(), 'RidImageBundle')))
 //        ->add('value', 'text')
         ;
     }
