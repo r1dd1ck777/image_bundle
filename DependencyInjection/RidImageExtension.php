@@ -25,6 +25,24 @@ class RidImageExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
+        $config = $this->fixConfig($config, $container);
         $container->setParameter('rid_image', $config);
+    }
+
+    protected function fixConfig($config, $container)
+    {
+        if (!isset($config['dir'])){
+            $config['dir'] = array(
+                'web' => $container->getParameter('kernel.root_dir') . '/../web/'
+            );
+        }
+
+        if (!isset($config['path'])){
+            $config['path'] = array(
+                'tmp' => 'uploads/tmp/'
+            );
+        }
+
+        return $config;
     }
 }
