@@ -74,8 +74,6 @@ class RidImageManager
             elseif($ridFile instanceof RidFile){
                 $this->handleRidFile($ridFile, array('entity' => $object, 'field' =>$field ));
             }
-
-            var_dump($ridFile);
         }
     }
 
