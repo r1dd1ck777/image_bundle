@@ -136,7 +136,7 @@ class RidImageManager
         $this->dispatcher->dispatch(Events::POST_HANDLE_REMOVE, $eventArgs);
     }
 
-    public function doRemoveFiles(RidFile $object, $context = RidImage::CONTEXT_ORIGIN, $options=array())
+    public function doRemoveFiles(RidFile $object, $context = RidImage::CONTEXT_ORIGIN)
     {
         if (!$object->isInit()){
             throw new ArgumentException("Object must be configured or your should define a 'preset'.");

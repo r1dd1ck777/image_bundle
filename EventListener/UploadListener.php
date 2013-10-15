@@ -114,7 +114,7 @@ class UploadListener implements ContainerAwareInterface
             foreach($this->config->getFieldNamesFor($class) as $field){
                 $getter = 'get'.ucfirst($field);
                 $ridImage = $entity->$getter();
-                $this->ridImageManager->handleRemovingRidImage($ridImage, $entity, $field);
+                $this->ridImageManager->removeFiles($ridImage, null, array('entity' => $entity, 'field' => $field));
             }
         }
     }
