@@ -27,11 +27,17 @@ class UploadListener implements ContainerAwareInterface
         $this->container = $container;
     }
 
-    public function preFlush(EventArgs $ea)
+    protected function init()
     {
         $this->config = $this->container->get('rid.image.config');
         $this->ridImageManager = $this->container->get('rid_image');
         $this->configSetter = $this->container->get('rid.image.config_setter');
+    }
+
+    public function preFlush(EventArgs $ea)
+    {
+        $this->init();
+        if ($this->ridImageManager->ignorePreFlush){return;}
 
         /** @var \Doctrine\ORM\EntityManager $om */
         $om = $ea->getEntityManager();
@@ -74,6 +80,7 @@ class UploadListener implements ContainerAwareInterface
 
     public function onFlush(EventArgs $ea)
     {
+        $this->init();
         /** @var \Doctrine\ORM\EntityManager $om */
         $om = $ea->getEntityManager();
         /** @var \Doctrine\ORM\UnitOfWork $uow */
@@ -91,7 +98,6 @@ class UploadListener implements ContainerAwareInterface
 
         $this->scheduledRemoves = $uow->getScheduledEntityDeletions();
         $this->processUploads();
-        sleep(3);
     }
 
     public function processUploads()
@@ -104,6 +110,7 @@ class UploadListener implements ContainerAwareInterface
 
     public function postFlush(EventArgs $ea)
     {
+        $this->init();
         foreach($this->scheduledRemoves as $entity)
         {
             if (!in_array(get_class($entity), $this->config->getClassNames())){

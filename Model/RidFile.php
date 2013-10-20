@@ -86,7 +86,6 @@ class RidFile implements \ArrayAccess
         }
     }
 
-
     public function getType()
     {
         if (!is_null($this->getFile())){

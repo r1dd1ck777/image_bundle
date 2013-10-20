@@ -21,6 +21,11 @@ class RidImageManager
     protected $dispatcher;
     /** @var \Rid\Bundle\ImageBundle\Services\ConfigSetter $config */
     protected $configSetter;
+    /**
+     * @var boolean
+     * useful for cases when u persist 1k+ objects (for some reason) and want to save time
+     */
+    public $ignorePreFlush;
 
     public function setConfigSetter($configSetter)
     {
